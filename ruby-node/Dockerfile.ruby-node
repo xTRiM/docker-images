@@ -1,4 +1,4 @@
-FROM ruby:3.2.0
+FROM ruby:3.3.0
 
 ENV LANG C.UTF-8
 
@@ -18,9 +18,9 @@ RUN gpg --keyserver hkps://keys.openpgp.org --recv-keys 4ED778F539E3634C779C87C6
  && gpg --keyserver hkps://keys.openpgp.org --recv-keys A363A499291CBBC940DD62E41F10027AF002F8B0 
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_MAJOR 16
+ENV NODE_MAJOR 21
 
-RUN NODE_VERSION=16.17.1 \
+RUN NODE_VERSION=21.6.1 \
   ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
     amd64) ARCH='x64';; \
